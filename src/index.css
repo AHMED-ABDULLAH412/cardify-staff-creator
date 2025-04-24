@@ -82,16 +82,9 @@
     visibility: visible;
   }
   #idCard {
-    position: fixed;
+    position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: none !important;
-    width: 86mm !important;
-    height: 54mm !important;
-  }
-  @page {
-    size: 86mm 54mm;
-    margin: 0;
   }
 }

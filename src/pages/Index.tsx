@@ -25,33 +25,14 @@ const Index = () => {
   const handleDownloadPDF = async () => {
     const card = document.getElementById('idCard');
     if (card) {
-      const canvas = await html2canvas(card, {
-        scale: 2, // Increase quality
-        useCORS: true, // Enable cross-origin image loading
-        logging: false,
-        backgroundColor: '#ffffff'
-      });
-      
-      const imgWidth = 86; // mm (ID card width)
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      
+      const canvas = await html2canvas(card);
+      const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF({
-        orientation: imgHeight > imgWidth ? 'portrait' : 'landscape',
+        orientation: 'landscape',
         unit: 'mm',
-        format: [imgWidth, imgHeight]
+        format: [86, 54]  // Standard ID card size
       });
-      
-      pdf.addImage(
-        canvas.toDataURL('image/jpeg', 1.0), 
-        'JPEG', 
-        0, 
-        0, 
-        imgWidth, 
-        imgHeight, 
-        undefined, 
-        'FAST'
-      );
-      
+      pdf.addImage(imgData, 'PNG', 0, 0, 86, 54);
       pdf.save('id-card.pdf');
     }
   };
