@@ -35,54 +35,60 @@ const IDCardForm = ({ onSubmit, formData, setFormData }: IDCardFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 p-6 bg-white rounded-lg shadow-md">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="fullName">Full Name</Label>
+        <div>
+          <Label htmlFor="fullName" className="text-gray-700">Full Name</Label>
           <Input
             id="fullName"
             type="text"
             value={formData.fullName}
             onChange={(e) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
             placeholder="e.g., Mashaal Al Hammadi"
+            className="mt-1 focus:ring-[#1EAEDB] focus:border-[#1EAEDB]"
             required
           />
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="employeeId">Employee ID</Label>
+        <div>
+          <Label htmlFor="employeeId" className="text-gray-700">Employee ID</Label>
           <Input
             id="employeeId"
             type="text"
             value={formData.employeeId}
             onChange={(e) => setFormData(prev => ({ ...prev, employeeId: e.target.value }))}
             placeholder="e.g., 2619"
+            className="mt-1 focus:ring-[#1EAEDB] focus:border-[#1EAEDB]"
             required
           />
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="designation">Designation</Label>
+        <div>
+          <Label htmlFor="designation" className="text-gray-700">Designation</Label>
           <Input
             id="designation"
             type="text"
             value={formData.designation}
             onChange={(e) => setFormData(prev => ({ ...prev, designation: e.target.value }))}
             placeholder="e.g., Administrative Staff"
+            className="mt-1 focus:ring-[#1EAEDB] focus:border-[#1EAEDB]"
             required
           />
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="photo">Photo</Label>
-          <Input
-            id="photo"
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="cursor-pointer"
-            required={!formData.photo}
-          />
+        <div>
+          <Label htmlFor="photo" className="text-gray-700">Photo (1:1 ratio, 300x300px recommended)</Label>
+          <div className="mt-1 flex items-center">
+            <Input
+              id="photo"
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+              className="cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#1EAEDB]/10 file:text-[#1EAEDB] hover:file:bg-[#1EAEDB]/20"
+              required={!formData.photo}
+            />
+          </div>
+          <p className="text-xs text-gray-500 mt-1">Upload a square image for best results</p>
         </div>
       </div>
     </form>

@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -74,6 +75,15 @@
   }
 }
 
+/* When rendering for PDF */
+.pdf-rendering {
+  box-shadow: none !important;
+  transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Print styles for the ID card */
 @media print {
   body * {
     visibility: hidden;
@@ -87,11 +97,12 @@
     top: 50%;
     transform: translate(-50%, -50%);
     box-shadow: none !important;
-    width: 86mm !important;
-    height: 54mm !important;
+    width: 86mm !important; /* Standard ID card width */
+    height: auto !important;
+    border: none !important;
   }
   @page {
-    size: 86mm 54mm;
-    margin: 0;
+    size: 89mm 127mm; /* Standard ID card size with margins */
+    margin: 5mm;
   }
 }
