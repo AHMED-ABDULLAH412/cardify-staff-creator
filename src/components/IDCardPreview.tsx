@@ -17,7 +17,7 @@ const IDCardPreview = ({
         <div className="flex items-center space-x-3">
           <img src="/lovable-uploads/6a764e94-9f71-43d2-b383-4eb9aa3828d2.png" alt="School Logo" className="w-12 h-12 object-cover" />
           <div className="text-white">
-            <h2 className="text-lg font-bold">Royal American School</h2>
+            <h2 className="text-lg font-bold text-gray-100">Royal American School</h2>
             <p className="text-xs">Tel: 025591000</p>
           </div>
         </div>
