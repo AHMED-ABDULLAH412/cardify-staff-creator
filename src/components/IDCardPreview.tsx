@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-
 interface IDCardPreviewProps {
   formData: {
     fullName: string;
@@ -10,18 +8,14 @@ interface IDCardPreviewProps {
     photo: string;
   };
 }
-
-const IDCardPreview = ({ formData }: IDCardPreviewProps) => {
-  return (
-    <div id="idCard" className="w-[340px] bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+const IDCardPreview = ({
+  formData
+}: IDCardPreviewProps) => {
+  return <div id="idCard" className="w-[340px] bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
       {/* Blue header section */}
       <div className="bg-[#1EAEDB] p-4 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <img
-            src="/lovable-uploads/6a764e94-9f71-43d2-b383-4eb9aa3828d2.png"
-            alt="School Logo"
-            className="w-12 h-12 object-contain"
-          />
+          <img src="/lovable-uploads/6a764e94-9f71-43d2-b383-4eb9aa3828d2.png" alt="School Logo" className="w-12 h-12 object-cover" />
           <div className="text-white">
             <h2 className="text-lg font-bold">Royal American School</h2>
             <p className="text-xs">Tel: 025591000</p>
@@ -35,17 +29,11 @@ const IDCardPreview = ({ formData }: IDCardPreviewProps) => {
       {/* White content section */}
       <div className="p-6 flex flex-col items-center space-y-4">
         {/* Photo section */}
-        {formData.photo && (
-          <div className="w-[150px] h-[150px] rounded-full overflow-hidden border-4 border-[#1EAEDB]">
+        {formData.photo && <div className="w-[150px] h-[150px] rounded-full overflow-hidden border-4 border-[#1EAEDB]">
             <AspectRatio ratio={1}>
-              <img
-                src={formData.photo}
-                alt="Staff photo"
-                className="w-full h-full object-cover"
-              />
+              <img src={formData.photo} alt="Staff photo" className="w-full h-full object-cover" />
             </AspectRatio>
-          </div>
-        )}
+          </div>}
         
         {/* Details section */}
         <div className="text-center space-y-2 w-full">
@@ -61,8 +49,6 @@ const IDCardPreview = ({ formData }: IDCardPreviewProps) => {
           <p className="text-xs text-gray-500">Valid until December 2025</p>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default IDCardPreview;
