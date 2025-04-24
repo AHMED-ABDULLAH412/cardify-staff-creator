@@ -21,7 +21,7 @@ const IDCardPreview = ({
             <p className="text-xs">Tel: 025591000</p>
           </div>
         </div>
-        <div className="bg-white text-[#1EAEDB] text-xs font-bold py-1 px-3 rounded-full">
+        <div className="text-[#1EAEDB] text-xs font-bold py-1 px-3 rounded-full bg-cyan-100">
           Staff ID
         </div>
       </div>
